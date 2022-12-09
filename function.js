@@ -21,7 +21,7 @@ function drawStart() {
     // Helicopter
     ctx.drawImage(heliImg, heli.x, heli.y);
   
-    // Start Text
+    // Start Text 
     ctx.font = "40px Consolas";
     ctx.fillStyle = "lightblue";
     ctx.fillText("CLICK TO START", 350, 285)
@@ -32,7 +32,24 @@ function drawStart() {
   }
   
   // Draw Game Elements
-  function drawGame() {
+  function runGame() {
+    // LOGIC
+    moveHeli();
+
+    // DRAW
+    drawGame();
+  }
+
+  function moveHeli(){
+    if (mouseIsPressed){
+      console.log("h")
+      heli.y += -3;
+     }else {
+      heli.y+=3
+     }
+  }
+
+  function drawGame(){
     // Background
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, cnv.width, cnv.height);

@@ -17,6 +17,8 @@ let heli = {
   y:250,
   w:80,
   h:40,
+  speed: 0,
+  accel: 0.5 
 } 
 
 // Draw Function
@@ -26,7 +28,7 @@ function draw() {
   if(state ==="start"){
     drawStart();
   }else if(state ==="gameon"){
-    drawGame();
+    runGame();
   }else if(state ==="gameover"){
     drawGameOver();
   }      
@@ -37,7 +39,7 @@ function draw() {
 
 // event studff
 document.addEventListener("mousedown", mousedownHandler);
-document.addEventListener("mousedown", mouseupHandler);
+document.addEventListener("mouseup", mouseupHandler);
 
 function mousedownHandler(){
   mouseIsPressed = true;
