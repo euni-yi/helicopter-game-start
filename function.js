@@ -87,6 +87,7 @@ function drawStart() {
   function drawGameOver() {
     drawMainComponents();
     drawWalls();
+
     // Circle around Helicopter
     ctx.strokeStyle = "red";
     ctx.lineWidth = 5;
@@ -102,6 +103,9 @@ function drawStart() {
   }
 
   // helper function
+  function reset(){
+        
+  state = "start";
   let heli = {
     x:200,
     y:250,
@@ -128,8 +132,6 @@ function drawStart() {
     w: 50,
     h:100,
   }
-  function reset(){
-    state = "start";
   }
   function drawWalls(){
     ctx.fillStyle = "green";
