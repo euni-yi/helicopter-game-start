@@ -9,12 +9,20 @@ cnv.height = 600;
 // Global Variables(once)
 let heliImg = document.createElement("img");
 heliImg.src = "img/heliBlueTransparent.png";
+
+let explosion = document.createElement("audio");
+explosion.src = "sound/explosion.wav";
+
+let propelller = document.createElement("audio");
+propelller.src = "sound/propeller.wav"
+
 let mouseIsPressed = false;
+
 // global variables (reset)
 let state;
 let heli;
 let wall1, wall2, wall3;
-reset(); 
+reset();
 
 // Draw Function
 window.addEventListener("load", draw);
@@ -39,6 +47,10 @@ document.addEventListener("mouseup", mouseupHandler);
 function mousedownHandler(){
   mouseIsPressed = true;
 
+  // play propeller sound
+  propelller.currentTime=0;
+  propelller.play();
+
   // Start Game on Mouse OPress
   if (state==="start"){
     state = "gameon";
@@ -47,6 +59,7 @@ function mousedownHandler(){
 
 function mouseupHandler(){
   mouseIsPressed = false;
+  propelller.pause();
 }
 
 
